@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora de IMC</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+      
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Calculadora de IMC</h1>
+
+        <p>Digite seu peso:</p>
+        <input type="number" id="peso" placeholder="Peso em kg">
+
+        <p>Digite sua altura:</p>
+        <input type="number" id="altura" placeholder="Altura em metros">
+
+        <br>
+
+        <button onclick="calcularIMC()">Calcular IMC</button>
+
+        <div id="resultado"></div>
+
+    </div>
+
+    <script>
+
+        function calcularIMC() {
+
+            var peso = document.getElementById("peso").value;
+            var altura = document.getElementById("altura").value;
+
+            var imc = peso / (altura * altura);
+
+            var resultado = document.getElementById("resultado");
+
+            if (imc < 18.5) {
+                resultado.innerHTML = "IMC: " + imc.toFixed(2) +
+                    "<br>Classificação: Abaixo do peso";
+
+            } else if (imc < 25) {
+                resultado.innerHTML = "IMC: " + imc.toFixed(2) +
+                    "<br>Classificação: Peso normal";
+
+            } else if (imc < 30) {
+                resultado.innerHTML = "IMC: " + imc.toFixed(2) +
+                    "<br>Classificação: Sobrepeso";
+
+            } else if (imc < 35) {
+                resultado.innerHTML = "IMC: " + imc.toFixed(2) +
+                    "<br>Classificação: Obesidade grau I";
+
+            } else if (imc < 40) {
+                resultado.innerHTML = "IMC: " + imc.toFixed(2) +
+                    "<br>Classificação: Obesidade grau II";
+
+            } else {
+                resultado.innerHTML = "IMC: " + imc.toFixed(2) +
+                    "<br>Classificação: Obesidade grau III";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
